@@ -25,13 +25,14 @@ for iter = 1:num_iters
 
     % ============================================================
     h = X * theta;
-    theta0 = theta(1);
-    theta1 = theta(2);
-    X0 = X(:, 1);
-    X1 = X(:, 2);
-    theta0 = theta0 - alpha * 1 / m * sum(X0' * (h - y));
-    theta1 = theta1 - alpha * 1 / m * sum(X1' * (h - y));
-    theta = [theta0; theta1];
+%     theta0 = theta(1);
+%     theta1 = theta(2);
+%     X0 = X(:, 1);
+%     X1 = X(:, 2);
+%     theta0 = theta0 - alpha * 1 / m * sum(X0' * (h - y));
+%     theta1 = theta1 - alpha * 1 / m * sum(X1' * (h - y));
+%     theta = [theta0; theta1];
+    theta = theta - (alpha * 1 / m) .* (X' * (h-y));
     
     % Save the cost J in every iteration    
     J_history(iter) = computeCost(X, y, theta);
