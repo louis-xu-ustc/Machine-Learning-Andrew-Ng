@@ -20,8 +20,16 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+X = [ones(m, 1) X];
+Y = sigmoid(X*Theta1');
+Y = [ones(m, 1) Y];
+Z = sigmoid(Y*Theta2');
 
+T = max(Z, [], 2);
 
+for i = 1: m
+    p(i) = find(Z(i, :)==T(i))
+end
 
 
 

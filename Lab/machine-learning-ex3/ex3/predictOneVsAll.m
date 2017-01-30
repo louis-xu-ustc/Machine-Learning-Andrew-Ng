@@ -30,7 +30,13 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+Z = sigmoid(X*all_theta');
 
+T = max(Z, [], 2);
+
+for i = 1: m
+    p(i) = find(Z(i, :)==T(i))
+end
 
 
 
